@@ -69,34 +69,34 @@ a{color:var(--teal)}
 
 /* Layout */
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
-.col{max-width:760px}
+.col{max-width:none}
 section{padding:3.25rem 0 1rem}
 h1,h2,h3{line-height:1.2;margin:0 0 .6rem;font-weight:700;letter-spacing:-.015em}
-h1{font-size:clamp(1.9rem,4.5vw,2.8rem);color:var(--blue);max-width:20ch}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem);color:var(--blue);max-width:none}
 h2{font-size:clamp(1.45rem,3vw,1.9rem);color:var(--blue)}
 h3{font-size:1.12rem}
 p{margin:.4rem 0 .9rem}
-.lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.lead{font-size:1.2rem;color:var(--muted);max-width:none}
 .small{font-size:.9rem;color:var(--muted)}
 
 /* Hero */
 .hero{position:relative;overflow:hidden;padding:3rem 0 2.2rem;background:var(--surface);border-bottom:3px solid var(--green-bright)}
 .hero .wrap{position:relative;z-index:1}
-.status{display:inline-block;background:var(--amber-soft);color:var(--amber);font-weight:700;font-size:.9rem;padding:.3rem .7rem;border-radius:999px;margin-bottom:1.1rem}
+.status{display:inline-flex;align-items:center;gap:.4rem;text-decoration:none;transition:filter .2s ease;background:var(--amber-soft);color:var(--amber);font-weight:700;font-size:.9rem;padding:.3rem .7rem;border-radius:999px;margin-bottom:1.1rem}
 .exam{margin-top:2.2rem}
 .exam-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;margin-bottom:1rem}
 .exam-head h2{font-size:1.15rem;color:var(--ink);margin:0}
 .toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--bg)}
 .toggle button{font:inherit;font-size:.92rem;border:0;background:transparent;color:var(--muted);padding:.35rem .9rem;border-radius:999px;cursor:pointer}
 .toggle button[aria-pressed="true"]{background:var(--blue);color:var(--on-dark);font-weight:600}
-.hepts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.6rem;max-width:760px}
+.hepts{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;max-width:none}
 .hept{text-align:center}
 .hept .box{border:2px solid;border-radius:10px;padding:.85rem .3rem;min-height:5.2rem;display:flex;flex-direction:column;justify-content:center;transition:background .3s ease,border-color .3s ease,color .3s ease}
 .hept .p{font-size:1.45rem;font-weight:700;line-height:1.1}
 .hept .t{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:.15rem}
 .hept .mode{margin-top:.45rem;font-weight:700;font-size:.95rem}
 .hept .kind{font-size:.85rem;color:var(--muted);line-height:1.3}
-.exam-note{margin-top:1rem;font-size:.95rem;color:var(--muted);max-width:none}
+.exam-note{margin-top:1rem;font-size:.95rem;color:var(--muted);max-width:none;text-align:center}
 
 /* Callouts */
 .callout{border-left:4px solid var(--amber);background:var(--amber-soft);padding:1rem 1.2rem;border-radius:0 10px 10px 0;margin:1.2rem 0}
@@ -118,7 +118,7 @@ td.part{color:var(--teal);font-weight:700;white-space:nowrap}
 .was{color:var(--muted);font-size:.9rem}
 
 /* Selector */
-.picker{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin:1rem 0}
 .picker button{font:inherit;font-size:.95rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:.55rem .95rem;border-radius:10px;cursor:pointer;text-align:left;line-height:1.25}
 .picker button span{display:block;font-size:.82rem;color:var(--muted)}
 .picker button[aria-pressed="true"]{border-color:var(--green-bright);background:var(--green-soft);box-shadow:inset 0 0 0 1px var(--green-bright)}
@@ -168,7 +168,9 @@ td.part{color:var(--teal);font-weight:700;white-space:nowrap}
 }
 
 footer{margin-top:3rem;padding:2rem 0 2.5rem;background:var(--surface);border-top:1px solid var(--line);font-size:.92rem;color:var(--muted)}
-footer ul{padding-left:1.1rem;margin:.3rem 0 1rem}
+footer{text-align:center}
+footer ul{list-style:none;padding:0;margin:.3rem 0 1rem}
+footer li{margin:.15rem 0}
 
 @media (max-width:620px){
   .hepts{gap:.3rem}
@@ -186,8 +188,11 @@ footer ul{padding-left:1.1rem;margin:.3rem 0 1rem}
 
 /* Blocksatz für Fließtext */
 main p, main li, .callout, .hero .lead{text-align:justify;hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:6 3 3}
-.picker button, td, th, .exam-note{text-align:left}
+.picker button, td, th{text-align:left}
 @media (max-width:620px){.flow li{text-align:left}}
+.status:hover{filter:brightness(.95);text-decoration:underline;text-underline-offset:3px}
+.status .ext{flex:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 </head>
 <body>
@@ -209,7 +214,7 @@ main p, main li, .callout, .hero .lead{text-align:justify;hyphens:auto;-webkit-h
 
 <header class="hero" id="top">
   <div class="wrap">
-    <span class="status">Entwurfsstand · Anhörungsfassung vom 20.08.2026</span>
+    <a class="status" href="https://www.mk.niedersachsen.de/startseite/aktuelles/anhorungsverfahren/anhorungsverfahren-zur-umsetzung-der-reform-der-gymnasialen-oberstufe-253197.html" target="_blank" rel="noopener" title="Anhörungsfassung beim Nds. Kultusministerium öffnen">Entwurfsstand · Anhörungsfassung vom 20.08.2026<svg class="ext" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (öffnet in neuem Tab)</span></a>
     <h1>Oberstufenreform: Was sich im Beruflichen Gymnasium ändert</h1>
     <p class="lead">Eine Übersicht für das Kollegium der Beruflichen Gymnasien. Kurz gesagt: deutlich weniger, als die Berichterstattung vermuten lässt. Die größte Veränderung betrifft die Abiturprüfung.</p>
 
@@ -428,14 +433,13 @@ main p, main li, .callout, .hero .lead{text-align:justify;hyphens:auto;-webkit-h
     <p><strong>Abteilung Berufliche Gymnasien, BBS Nienburg</strong></p>
     <p>Grundlagen:</p>
     <ul>
-      <li><a href="https://www.mk.niedersachsen.de/startseite/aktuelles/anhorungsverfahren/anhorungsverfahren-zur-umsetzung-der-reform-der-gymnasialen-oberstufe-253197.html" target="_blank" rel="noopener">Entwurf der VO-SEK II-Abitur und der EB-VO-SEK II-Abitur mit Begründung, Anhörungsfassung vom 20.08.2026</a></li>
+      <li>Entwurf der VO-SEK II-Abitur und der EB-VO-SEK II-Abitur mit Begründung, Anhörungsfassung vom 20.08.2026</li>
       <li>AVO-GOBAK und EB-AVO-GOBAK (gelten für die Jahrgänge bis Abitur 2029 weiter)</li>
       <li>BbS-VO, Anlage 7, und EB-BbS; Änderung angekündigt, Fassung liegt noch nicht vor</li>
       <li>Nds. Kultusministerium: <a href="https://bildungsportal-niedersachsen.de/allgemeinbildung/faq-reform-der-oberstufe" target="_blank" rel="noopener">FAQ zur Reform der Oberstufe</a> (Bildungsportal Niedersachsen)</li>
     </ul>
-    <p>Stand: 31.10.2026. Entwurfsstand, ohne Gewähr. Vor verbindlichen Entscheidungen bitte die aktuelle Fassung prüfen.</p>
+    <p>Stand: 26.10.2026. Entwurfsstand, ohne Gewähr. Vor verbindlichen Entscheidungen bitte die aktuelle Fassung prüfen.</p>
     <p>BBS Nienburg · Berliner Ring 45 · 31582 Nienburg/Weser</p>
-    <p class="small" style="font-size:.78rem;opacity:.85">Aufbau angelehnt an die Informationsseiten von Hauke Pölert, Theodor-Heuss-Gymnasium Göttingen (CC BY-SA 4.0).</p>
   </div>
 </footer>
 
